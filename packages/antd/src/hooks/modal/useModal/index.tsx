@@ -30,7 +30,8 @@ export const useModal = ({
   return {
     modalProps: {
       ...modalProps,
-      onCancel: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      // antd 6 also closes on Escape: the event may come from the keyboard
+      onCancel: (e: Parameters<NonNullable<ModalProps["onCancel"]>>[0]) => {
         modalProps.onCancel?.(e);
         close();
       },
