@@ -34,15 +34,15 @@ export const useNotificationProvider = (): NotificationProvider => {
               undoableTimeout={undoableTimeout}
             />
           ),
-          message: null,
+          title: null,
           duration: 0,
           closeIcon: <></>,
         });
       } else {
         notification.open({
           key,
-          description: message,
-          message: description ?? null,
+          title: message,
+          description: description ?? null,
           type,
         });
       }
